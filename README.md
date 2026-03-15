@@ -8,6 +8,8 @@ Infrastructure as Code for Azure
 Cloud automation architecture
 
 # Azure Virtual Desktop Automation
+Enterprise reference architecture for automating Azure Virtual Desktop onboarding using ServiceNow, Logic Apps, Terraform and Azure DevOps.
+
 ![Terraform](https://img.shields.io/badge/Terraform-Infrastructure%20as%20Code-blue)
 ![Azure](https://img.shields.io/badge/Azure-Virtual%20Desktop-blue)
 ![DevOps](https://img.shields.io/badge/DevOps-Automation-green)
