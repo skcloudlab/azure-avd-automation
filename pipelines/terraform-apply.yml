@@ -1,0 +1,46 @@
+trigger: none
+pr: none
+
+parameters:
+- name: tfvarsFile
+  type: string
+  default: terraform.tfvars
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  TF_WORKING_DIR: terraform
+
+steps:
+- checkout: self
+
+- task: TerraformInstaller@1
+  displayName: Install Terraform
+  inputs:
+    terraformVersion: latest
+
+- script: |
+    terraform version
+  workingDirectory: $(TF_WORKING_DIR)
+  displayName: Terraform Version
+
+- script: |
+    terraform init
+  workingDirectory: $(TF_WORKING_DIR)
+  displayName: Terraform Init
+
+- script: |
+    terraform validate
+  workingDirectory: $(TF_WORKING_DIR)
+  displayName: Terraform Validate
+
+- script: |
+    terraform plan -var-file="${{ parameters.tfvarsFile }}" -out=tfplan
+  workingDirectory: $(TF_WORKING_DIR)
+  displayName: Terraform Plan
+
+- script: |
+    terraform apply -auto-approve tfplan
+  workingDirectory: $(TF_WORKING_DIR)
+  displayName: Terraform Apply
