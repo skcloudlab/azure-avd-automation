@@ -38,30 +38,33 @@ This project demonstrates how the process can be **fully automated using DevOps 
 
 ---
 
-# Architecture
+# High-Level Architecture
 
-The architecture integrates ITSM workflows with cloud automation.
+```mermaid
+flowchart TD
 
-```
-ServiceNow Request
-        │
-        ▼
-Azure Logic App Trigger
-        │
-        ▼
-Azure DevOps Pipeline
-        │
-        ▼
-Terraform Infrastructure Deployment
-        │
-        ▼
-Azure Virtual Desktop Resources
-        │
-        ▼
-User Assignment
-        │
-        ▼
-Callback to ServiceNow
+A[User submits ServiceNow request]
+B[ServiceNow Catalog Item]
+C[Azure Logic App HTTP Trigger]
+D[Validate Request Payload]
+E[Prepare Deployment Configuration]
+F[Azure DevOps Pipeline Trigger]
+G[Terraform Infrastructure Deployment]
+H[Azure Virtual Desktop Host Pool]
+I[Session Host VM Provisioning]
+J[User Assignment to App Group]
+K[Callback to ServiceNow]
+
+A --> B
+B --> C
+C --> D
+D --> E
+E --> F
+F --> G
+G --> H
+H --> I
+I --> J
+J --> K
 ```
 
 This architecture enables provisioning of AVD environments **within minutes instead of hours**.
@@ -111,7 +114,7 @@ Users submit requests through a catalog item containing fields such as:
 
 - User UPN
 - Department
-- Host pool type
+- Host Pool Type
 - Request ID
 
 Once approved, ServiceNow sends a REST API request to the Logic App.
@@ -163,51 +166,102 @@ Terraform ensures infrastructure deployments are:
 
 ---
 
-# Terraform Modules
+# Terraform Module Architecture
 
-The repository includes modular Terraform components.
+```mermaid
+flowchart LR
 
-### Host Pool Module
-Creates an Azure Virtual Desktop host pool.
+A[Terraform Root Module]
+B[Host Pool Module]
+C[Session Host Module]
+D[Application Group Module]
+E[User Assignment Module]
 
-### Session Host Module
-Deploys a session host virtual machine and registers it with the host pool.
+A --> B
+A --> C
+A --> D
+A --> E
+```
 
-### Application Group Module
-Creates a desktop application group and associates it with the workspace.
-
-### User Assignment Module
-Assigns users to the application group.
-
----
-
-# Deployment Flow
-
-The automated provisioning workflow follows these steps.
-
-1. User submits ServiceNow request  
-2. Logic App receives API request  
-3. Request payload validated  
-4. Azure DevOps pipeline triggered  
-5. Terraform executes infrastructure deployment  
-6. AVD resources are created  
-7. User assigned to application group  
-8. ServiceNow ticket updated with status  
+Modules allow infrastructure components to be reused across environments.
 
 ---
 
-# Offboarding Workflow
+# Onboarding Automation Workflow
 
-The automation also supports **resource cleanup**.
+The onboarding automation is the **core functionality of this architecture**.
 
-Offboarding process:
+```mermaid
+flowchart TD
 
-1. ServiceNow offboarding request submitted  
-2. Logic App triggers destroy workflow  
-3. Azure DevOps pipeline executes Terraform destroy  
-4. Session host resources removed  
-5. User access revoked  
-6. ServiceNow ticket updated  
+A[ServiceNow Request Submitted]
+B[Manager Approval]
+C[Logic App Trigger]
+D[Payload Validation]
+E[Generate Terraform Variables]
+F[Commit Configuration to Repository]
+G[Trigger Azure DevOps Pipeline]
+H[Terraform Plan]
+I[Terraform Apply]
+J[Provision AVD Infrastructure]
+K[Register Session Host]
+L[Assign User to Application Group]
+M[Send Completion Status to ServiceNow]
+
+A --> B
+B --> C
+C --> D
+D --> E
+E --> F
+F --> G
+G --> H
+H --> I
+I --> J
+J --> K
+K --> L
+L --> M
+```
+
+### Onboarding Steps
+
+1. User submits request through ServiceNow catalog.
+2. ServiceNow approval workflow validates request.
+3. ServiceNow triggers Azure Logic App via REST API.
+4. Logic App validates request payload.
+5. Logic App generates Terraform configuration.
+6. Logic App triggers Azure DevOps pipeline.
+7. Azure DevOps executes Terraform deployment.
+8. Terraform provisions Azure Virtual Desktop infrastructure.
+9. Session host is registered to the host pool.
+10. User is assigned to the application group.
+11. Status is sent back to ServiceNow.
+
+Provisioning time typically reduces from **2 hours to 10–15 minutes**.
+
+---
+
+# Offboarding Automation
+
+The architecture also supports automated offboarding.
+
+```mermaid
+flowchart TD
+
+A[ServiceNow Offboarding Request]
+B[Logic App Trigger]
+C[Trigger Destroy Pipeline]
+D[Terraform Destroy]
+E[Remove Session Host Resources]
+F[Remove User Assignment]
+G[Update ServiceNow Ticket]
+
+A --> B
+B --> C
+C --> D
+D --> E
+E --> F
+F --> G
+```
 
 ---
 
@@ -285,14 +339,6 @@ Possible improvements include:
 - improved automation workflows
 - monitoring integrations
 - documentation enhancements
-
----
-
-# License
-
-This project is provided for educational purposes.
-
-Review and adapt the configuration before deploying in production environments.
 
 ---
 
