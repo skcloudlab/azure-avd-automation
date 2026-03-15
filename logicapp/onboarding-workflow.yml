@@ -1,0 +1,57 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "triggers": {
+      "http_request_received": {
+        "type": "Request",
+        "kind": "Http",
+        "inputs": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "user_upn": { "type": "string" },
+              "request_id": { "type": "string" },
+              "department": { "type": "string" },
+              "host_pool_type": { "type": "string" }
+            },
+            "required": [
+              "user_upn",
+              "request_id",
+              "department",
+              "host_pool_type"
+            ]
+          }
+        }
+      }
+    },
+    "actions": {
+      "compose_request_summary": {
+        "type": "Compose",
+        "inputs": {
+          "user_upn": "@triggerBody()?['user_upn']",
+          "request_id": "@triggerBody()?['request_id']",
+          "department": "@triggerBody()?['department']",
+          "host_pool_type": "@triggerBody()?['host_pool_type']"
+        }
+      },
+      "respond_accepted": {
+        "runAfter": {
+          "compose_request_summary": [
+            "Succeeded"
+          ]
+        },
+        "type": "Response",
+        "kind": "Http",
+        "inputs": {
+          "statusCode": 202,
+          "body": {
+            "status": "Accepted",
+            "message": "Onboarding workflow triggered"
+          }
+        }
+      }
+    },
+    "outputs": {}
+  }
+}
