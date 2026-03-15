@@ -1,0 +1,3 @@
+output "role_assignment_scope" {
+  value = azurerm_role_assignment.desktop_user.scope
+}
