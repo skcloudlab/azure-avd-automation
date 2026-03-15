@@ -8,6 +8,11 @@ Infrastructure as Code for Azure
 Cloud automation architecture
 
 # Azure Virtual Desktop Automation
+![Terraform](https://img.shields.io/badge/Terraform-Infrastructure%20as%20Code-blue)
+![Azure](https://img.shields.io/badge/Azure-Virtual%20Desktop-blue)
+![DevOps](https://img.shields.io/badge/DevOps-Automation-green)
+![ServiceNow](https://img.shields.io/badge/ServiceNow-Integration-orange)
+
 ### End-to-End Automation with ServiceNow, Logic Apps, Azure DevOps and Terraform
 
 This repository demonstrates a **reference architecture for automating Azure Virtual Desktop (AVD) onboarding and offboarding workflows** using Infrastructure as Code and DevOps pipelines.
