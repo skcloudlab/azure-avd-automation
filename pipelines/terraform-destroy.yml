@@ -1,0 +1,42 @@
+trigger: none
+pr: none
+
+parameters:
+- name: tfvarsFile
+  type: string
+  default: terraform.tfvars
+
+- name: confirm
+  type: string
+  default: ""
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  TF_WORKING_DIR: terraform
+
+steps:
+- checkout: self
+
+- bash: |
+    if [ "${{ parameters.confirm }}" != "DESTROY" ]; then
+      echo "Confirmation value must be DESTROY"
+      exit 1
+    fi
+  displayName: Validate destroy confirmation
+
+- task: TerraformInstaller@1
+  displayName: Install Terraform
+  inputs:
+    terraformVersion: latest
+
+- script: |
+    terraform init
+  workingDirectory: $(TF_WORKING_DIR)
+  displayName: Terraform Init
+
+- script: |
+    terraform destroy -auto-approve -var-file="${{ parameters.tfvarsFile }}"
+  workingDirectory: $(TF_WORKING_DIR)
+  displayName: Terraform Destroy
