@@ -1,8 +1,4 @@
 ## `/diagrams/logicapp-workflow.md`
-
-```md
-# Logic App Workflow
-
 ```mermaid
 flowchart TD
     A[HTTP Request] --> B[Validate payload]
