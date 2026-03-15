@@ -1,3 +1,12 @@
+## Keywords
+
+Azure Virtual Desktop automation  
+Terraform AVD deployment  
+Azure DevOps pipeline automation  
+ServiceNow Azure integration  
+Infrastructure as Code for Azure  
+Cloud automation architecture
+
 # Azure Virtual Desktop Automation
 ### End-to-End Automation with ServiceNow, Logic Apps, Azure DevOps and Terraform
 
