@@ -1,0 +1,54 @@
+{
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "triggers": {
+      "http_request_received": {
+        "type": "Request",
+        "kind": "Http",
+        "inputs": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "user_upn": { "type": "string" },
+              "request_id": { "type": "string" },
+              "user_object_id": { "type": "string" }
+            },
+            "required": [
+              "user_upn",
+              "request_id",
+              "user_object_id"
+            ]
+          }
+        }
+      }
+    },
+    "actions": {
+      "compose_destroy_request": {
+        "type": "Compose",
+        "inputs": {
+          "user_upn": "@triggerBody()?['user_upn']",
+          "request_id": "@triggerBody()?['request_id']",
+          "user_object_id": "@triggerBody()?['user_object_id']"
+        }
+      },
+      "respond_accepted": {
+        "runAfter": {
+          "compose_destroy_request": [
+            "Succeeded"
+          ]
+        },
+        "type": "Response",
+        "kind": "Http",
+        "inputs": {
+          "statusCode": 202,
+          "body": {
+            "status": "Accepted",
+            "message": "Offboarding workflow triggered"
+          }
+        }
+      }
+    },
+    "outputs": {}
+  }
+}
