@@ -8,7 +8,7 @@
 
 Enterprise reference architecture for automating Azure Virtual Desktop onboarding using ServiceNow, Logic Apps, Terraform and Azure DevOps.
 
-### End-to-End Automation with ServiceNow, Logic Apps, Azure DevOps and Terraform
+## End-to-End Automation with ServiceNow, Logic Apps, Azure DevOps and Terraform
 
 This repository demonstrates a **reference architecture for automating Azure Virtual Desktop (AVD) onboarding and offboarding workflows** using Infrastructure as Code and DevOps pipelines.
 
@@ -22,7 +22,14 @@ The solution integrates the following platforms:
 
 The goal is to automate the **complete lifecycle of AVD user provisioning**, from request submission to infrastructure deployment and user access assignment.
 
+## Quick Start
 
+1. Review the architecture diagrams in `/diagrams`
+2. Read the implementation notes in `/docs`
+3. Review Terraform root module in `/terraform`
+4. Review reusable components in `/modules`
+5. Review sample pipelines in `/pipelines`
+6. Review sample Logic App workflows in `/logicapp`
 
 ## Keywords
 
