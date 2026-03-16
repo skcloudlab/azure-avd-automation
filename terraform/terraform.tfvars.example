@@ -1,0 +1,21 @@
+location               = "japaneast"
+resource_group_name    = "rg-avd-demo"
+workspace_name         = "ws-avd-demo"
+host_pool_name         = "hp-avd-demo"
+host_pool_type         = "Personal"
+application_group_name = "dag-avd-demo"
+
+deploy_session_host    = true
+session_host_name      = "avdsh001"
+subnet_id              = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-network/providers/Microsoft.Network/virtualNetworks/vnet-demo/subnets/default"
+
+vm_size               = "Standard_D4s_v5"
+admin_username        = "azureadmin"
+admin_password        = "ReplaceMeInRealUsage!"
+registration_token    = "sample-registration-token"
+user_object_id        = "11111111-1111-1111-1111-111111111111"
+
+tags = {
+  environment = "demo"
+  workload    = "avd"
+}
