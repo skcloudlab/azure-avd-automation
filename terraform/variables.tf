@@ -1,84 +1,101 @@
 variable "location" {
-  type    = string
-  default = "japaneast"
+  type        = string
+  description = "Azure region"
 }
 
 variable "resource_group_name" {
-  type = string
+  type        = string
+  description = "Resource group for AVD resources"
 }
 
 variable "workspace_name" {
-  type = string
+  type        = string
+  description = "AVD workspace name"
 }
 
 variable "host_pool_name" {
-  type = string
+  type        = string
+  description = "AVD host pool name"
 }
 
 variable "host_pool_type" {
-  type    = string
-  default = "Personal"
+  type        = string
+  description = "Host pool type: Personal or Pooled"
+  default     = "Personal"
 }
 
 variable "load_balancer_type" {
-  type    = string
-  default = "Persistent"
+  type        = string
+  description = "Load balancer type"
+  default     = "Persistent"
 }
 
 variable "maximum_sessions_allowed" {
-  type    = number
-  default = 1
+  type        = number
+  description = "Maximum sessions allowed per host"
+  default     = 1
 }
 
 variable "start_vm_on_connect" {
-  type    = bool
-  default = false
+  type        = bool
+  description = "Start VM on connect"
+  default     = false
 }
 
 variable "application_group_name" {
-  type = string
+  type        = string
+  description = "Desktop application group name"
 }
 
 variable "deploy_session_host" {
-  type    = bool
-  default = true
+  type        = bool
+  description = "Whether to deploy a sample session host"
+  default     = true
 }
 
 variable "session_host_name" {
-  type = string
+  type        = string
+  description = "Session host VM name"
 }
 
 variable "subnet_id" {
-  type = string
+  type        = string
+  description = "Subnet ID for session host network interface"
 }
 
 variable "vm_size" {
-  type    = string
-  default = "Standard_D4s_v5"
+  type        = string
+  description = "Session host VM size"
+  default     = "Standard_D4s_v5"
 }
 
 variable "admin_username" {
-  type    = string
-  default = "azureadmin"
+  type        = string
+  description = "Local administrator username"
+  default     = "azureadmin"
 }
 
 variable "admin_password" {
-  type      = string
-  sensitive = true
-  default   = null
+  type        = string
+  description = "Local administrator password"
+  default     = null
+  sensitive   = true
 }
 
 variable "registration_token" {
-  type      = string
-  sensitive = true
+  type        = string
+  description = "AVD registration token"
+  sensitive   = true
 }
 
 variable "user_object_id" {
-  type    = string
-  default = null
+  type        = string
+  description = "User object ID for application group assignment"
+  default     = null
 }
 
 variable "tags" {
-  type    = map(string)
-  default = {}
+  type        = map(string)
+  description = "Resource tags"
+  default     = {}
 }
