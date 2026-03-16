@@ -377,6 +377,39 @@ Do not use these examples in production environments without proper security rev
 
 ---
 
+## Pipeline Execution Model
+
+The sample Azure DevOps pipelines included in this repository demonstrate two infrastructure lifecycle actions:
+
+- **Apply Pipeline**
+  - initializes Terraform
+  - validates configuration
+  - generates a Terraform plan
+  - applies infrastructure changes
+
+- **Destroy Pipeline**
+  - validates explicit destroy confirmation
+  - initializes Terraform
+  - destroys provisioned infrastructure
+
+These pipelines are intentionally simplified for documentation and learning purposes.
+
+---
+
+## Logic App Orchestration
+
+Azure Logic Apps act as the orchestration layer in this reference architecture.
+
+The sample workflows in `/logicapp` demonstrate how requests can be:
+
+- received from ServiceNow
+- validated through a request schema
+- transformed into deployment input
+- connected to downstream deployment processes
+
+The workflows are intentionally simplified for public reference and learning.
+
+---
 # Future Enhancements
 
 Potential improvements include:
