@@ -1,11 +1,3 @@
-## Keywords
-
-Azure Virtual Desktop automation  
-Terraform AVD deployment  
-Azure DevOps pipeline automation  
-ServiceNow Azure integration  
-Infrastructure as Code for Azure  
-Cloud automation architecture
 
 # Azure Virtual Desktop Automation
 
@@ -16,6 +8,19 @@ Cloud automation architecture
 
 Enterprise reference architecture for automating Azure Virtual Desktop onboarding using ServiceNow, Logic Apps, Terraform and Azure DevOps.
 
+## Keywords
+
+Azure Virtual Desktop automation  
+Terraform AVD deployment  
+Azure DevOps pipeline automation  
+ServiceNow Azure integration  
+Infrastructure as Code for Azure  
+Cloud automation architecture
+
+
+## Status
+
+This repository is a sanitized reference implementation for learning, documentation, and architecture discussion.
 
 ### End-to-End Automation with ServiceNow, Logic Apps, Azure DevOps and Terraform
 
