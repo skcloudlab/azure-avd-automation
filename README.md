@@ -408,6 +408,18 @@ Azure DevOps Infrastructure Automation
 ServiceNow Cloud Automation  
 AVD Session Host Deployment  
 Terraform Azure Modules
+
+## Disclaimer
+
+This repository is a **reference architecture demonstration**.
+
+The implementation excludes:
+
+- production secrets
+- tenant identifiers
+- enterprise network details
+- internal pipelines
+
 # Author
 
 SK Cloud Automation  
