@@ -1,5 +1,15 @@
 # Terraform Root Module
 
-This folder contains the root Terraform configuration that composes the sample AVD modules.
+This folder contains the root Terraform configuration for the sample AVD automation reference implementation.
 
-Before real deployment, replace all placeholder values and review security requirements.
+## Responsibilities
+
+- create AVD workspace
+- create host pool
+- create application group
+- optionally deploy session host
+- optionally assign user access
+
+## Notes
+
+This is a sanitized reference example only.
