@@ -31,6 +31,17 @@ The goal is to automate the **complete lifecycle of AVD user provisioning**, fro
 5. Review sample pipelines in `/pipelines`
 6. Review sample Logic App workflows in `/logicapp`
 
+## Repository Navigation
+
+| Folder | Description |
+|------|------|
+| docs | Architecture and implementation documentation |
+| terraform | Root Terraform configuration |
+| modules | Reusable Terraform modules |
+| pipelines | Azure DevOps pipeline examples |
+| logicapp | Logic App workflow samples |
+| diagrams | Architecture diagrams |
+
 ## Automation Layers
 
 The solution is built in four automation layers:
@@ -38,13 +49,10 @@ The solution is built in four automation layers:
 1. **ITSM Layer**
    - ServiceNow catalog requests
    - approval workflows
-
 2. **Orchestration Layer**
    - Azure Logic Apps
-
 3. **Deployment Layer**
    - Azure DevOps pipelines
-
 4. **Infrastructure Layer**
    - Terraform
    - Azure Virtual Desktop
