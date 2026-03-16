@@ -6,6 +6,7 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "~> 4.0"
     }
+
     random = {
       source  = "hashicorp/random"
       version = "~> 3.6"
@@ -21,8 +22,9 @@ resource "azurerm_virtual_desktop_workspace" "this" {
   name                = var.workspace_name
   location            = var.location
   resource_group_name = var.resource_group_name
-  friendly_name       = var.workspace_name
-  description         = "Sample AVD workspace"
+
+  friendly_name = var.workspace_name
+  description   = "Sample AVD workspace for reference implementation"
 
   tags = var.tags
 }
@@ -38,7 +40,7 @@ module "hostpool" {
   maximum_sessions_allowed = var.maximum_sessions_allowed
   preferred_app_group_type = "Desktop"
   start_vm_on_connect      = var.start_vm_on_connect
-  description              = "Sample host pool for GitHub reference repo"
+  description              = "Sample AVD host pool"
   tags                     = var.tags
 }
 
