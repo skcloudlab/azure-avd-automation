@@ -30,7 +30,16 @@ The goal is to automate the **complete lifecycle of AVD user provisioning**, fro
 4. Review reusable components in `/modules`
 5. Review sample pipelines in `/pipelines`
 6. Review sample Logic App workflows in `/logicapp`
+## Learning Objectives
 
+This repository helps engineers understand:
+
+- How to integrate ServiceNow with Azure automation
+- How to orchestrate cloud workflows using Logic Apps
+- How to deploy Azure infrastructure using Terraform
+- How to automate AVD onboarding and offboarding
+- How DevOps pipelines can manage infrastructure lifecycle
+- 
 ## Keywords
 
 Azure Virtual Desktop automation  
