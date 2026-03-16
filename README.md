@@ -39,7 +39,7 @@ This repository helps engineers understand:
 - How to deploy Azure infrastructure using Terraform
 - How to automate AVD onboarding and offboarding
 - How DevOps pipelines can manage infrastructure lifecycle
-- 
+
 ## Keywords
 
 Azure Virtual Desktop automation  
