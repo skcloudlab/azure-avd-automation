@@ -22,15 +22,6 @@ The solution integrates the following platforms:
 
 The goal is to automate the **complete lifecycle of AVD user provisioning**, from request submission to infrastructure deployment and user access assignment.
 
-## Quick Start
-
-1. Review the architecture diagrams in `/diagrams`
-2. Read the implementation notes in `/docs`
-3. Review Terraform root module in `/terraform`
-4. Review reusable components in `/modules`
-5. Review sample pipelines in `/pipelines`
-6. Review sample Logic App workflows in `/logicapp`
-
 ## Repository Navigation
 
 | Folder | Description |
