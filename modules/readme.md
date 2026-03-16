@@ -1,19 +1,12 @@
----
+# Terraform Modules
 
-# Extra files you should add
+This folder contains reusable Terraform modules for the Azure Virtual Desktop automation reference implementation.
 
-## `/modules/README.md`
-
-```md
-# Modules
-
-This folder contains sanitized Terraform modules for demonstrating an Azure Virtual Desktop automation pattern.
-
-Included modules:
+## Included Modules
 
 - avd-hostpool
-- avd-sessionhost
 - avd-appgroup
+- avd-sessionhost
 - avd-user-assignment
 
-These are sample reference modules only.
+These modules are intentionally simplified and sanitized for public learning and architecture reference.
