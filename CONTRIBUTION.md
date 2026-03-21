@@ -1,36 +1,42 @@
 # Contributing
 
-Thank you for your interest in contributing to this repository.
+Thanks for your interest in this repository.
 
-This project provides a reference architecture for automating Azure Virtual Desktop provisioning using Infrastructure as Code and DevOps practices.
+This project is a sanitized reference architecture for Azure Virtual Desktop automation using ServiceNow, Azure Logic Apps, Azure DevOps, and Terraform.
 
-## Ways to Contribute
+## Contribution Areas
 
-Contributions may include:
+You can contribute by helping with:
 
-- improving documentation
-- enhancing Terraform modules
-- adding monitoring examples
-- improving diagrams
-- reporting issues
+- documentation improvements
+- Terraform module improvements
+- diagram enhancements
+- troubleshooting guidance
+- sample pipeline refinements
 
 ## Guidelines
 
-When contributing:
+Please follow these rules when contributing:
 
-- avoid including sensitive information
-- keep examples sanitized
-- maintain clear documentation
-- follow Terraform best practices
+- do not include secrets, credentials, or internal URLs
+- keep examples sanitized and generic
+- update documentation if structure or logic changes
+- keep code readable and learning-focused
 
 ## Pull Requests
 
-Pull requests should include:
+Before submitting a pull request:
 
-- clear description of changes
-- updated documentation if applicable
-- no secrets or credentials
+1. review your changes for sensitive information
+2. ensure naming remains generic
+3. confirm documentation is updated where required
 
-## Note
+## Purpose of the Repository
 
-This repository is primarily intended as a learning and architecture reference project.
+This repository is intended for:
+
+- learning
+- architecture reference
+- public portfolio demonstration
+
+It is not intended to contain production enterprise code.
