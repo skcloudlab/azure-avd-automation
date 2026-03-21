@@ -33,6 +33,14 @@ The goal is to automate the **complete lifecycle of AVD user provisioning**, fro
 | logicapp | Logic App workflow samples |
 | diagrams | Architecture diagrams |
 
+## Start Here
+
+1. Read the architecture overview in `/docs/architecture.md`
+2. Review the automation flow in `/docs/workflow.md`
+3. Review the Terraform root in `/terraform`
+4. Explore reusable modules in `/modules`
+5. Check the sample orchestration flows in `/logicapp`
+
 ## Automation Layers
 
 The solution is built in four automation layers:
