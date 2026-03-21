@@ -22,6 +22,19 @@ The solution integrates the following platforms:
 
 The goal is to automate the **complete lifecycle of AVD user provisioning**, from request submission to infrastructure deployment and user access assignment.
 
+```markdown
+## End-to-End Automation Flow
+```
+```mermaid
+sequenceDiagram
+    SN->>LA1: Submit onboarding request
+    LA1->>ADO: Trigger automation
+    ADO->>TF: Deploy infrastructure
+    TF->>Azure: Provision AVD
+    Azure->>LA2: Callback
+    LA2->>SN: Update request
+```
+
 ## Repository Navigation
 
 | Folder | Description |
