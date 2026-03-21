@@ -77,6 +77,7 @@ sequenceDiagram
     LA2->>Azure: Assign user to session host
     LA2->>SN: Update RITM success/failure
     LA2->>Mail: Send admin notification
+```
 ---
 
 # Architecture Layers
