@@ -42,7 +42,41 @@ E --> F
 F --> G
 G --> H
 ```
+# End-to-End AVD Automation Flow
 
+```mermaid
+sequenceDiagram
+    participant SN as ServiceNow / Request Source
+    participant LA1 as Logic App - Onboarding
+    participant Graph as Microsoft Graph
+    participant Blob as Blob Config
+    participant ADO as Azure DevOps Repo
+    participant PR as Pull Request Flow
+    participant PIPE as ADO Pipeline
+    participant TF as Terraform
+    participant Azure as Azure ARM / AVD
+    participant LA2 as Logic App - Post Deployment
+    participant Mail as Office365 Mail
+
+    SN->>LA1: Submit onboarding request
+    LA1->>Graph: Validate user UPN
+    Graph-->>LA1: Return user object ID
+    LA1->>Blob: Read department-config.json
+    Blob-->>LA1: Return department mapping
+    LA1->>ADO: Create/update tfvars in automation branch
+    LA1->>PR: Create PR to main
+    PR->>PR: Add reviewer / approve / auto-complete
+    PR-->>PIPE: Repo change triggers pipeline
+    PIPE->>TF: Init / Validate / Plan / Apply
+    TF->>Azure: Provision personal AVD resources
+    PIPE->>Azure: Run command to expand C drive if needed
+    PIPE->>LA2: POST callback payload
+    LA2->>Blob: Reload department mapping
+    LA2->>Graph: Find target AVD group
+    LA2->>Graph: Add user to group if required
+    LA2->>Azure: Assign user to session host
+    LA2->>SN: Update RITM success/failure
+    LA2->>Mail: Send admin notification
 ---
 
 # Architecture Layers
