@@ -460,6 +460,14 @@ The implementation excludes:
 - enterprise network details
 - internal pipelines
 
+## Intentionally Omitted
+
+- real subscription and tenant IDs
+- internal URLs and endpoints
+- production secrets
+- customer naming conventions
+- enterprise approval logic
+
 # Author
 
 SK Cloud Automation  
