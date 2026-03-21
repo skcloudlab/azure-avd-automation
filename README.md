@@ -133,7 +133,7 @@ This architecture enables provisioning of AVD environments **within minutes inst
 # Repository Structure
 
 ```
-azure-avd-automation-servicenow-terraform/
+azure-avd-automation/
 
 ├── modules/
 │   ├── avd-hostpool/
