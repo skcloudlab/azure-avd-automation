@@ -1,3 +1,6 @@
+# Sanitized sample pipeline for public reference.
+# Authentication and backend configuration are environment-specific and intentionally omitted.
+
 trigger: none
 pr: none
 
